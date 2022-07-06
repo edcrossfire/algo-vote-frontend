@@ -192,34 +192,36 @@ const checkIfWalletIsConnected = async () => {
   }, [currentAccount])
 
   return (
-    <div>
+    <div className="bg-zinc-200 h-screen">
+      <div className="flex flex-col items-center pt-10">
+        <h1 className="uppercase font-bold text-2xl">Are we GMI?</h1>
+        <p className="px-10 pt-2 text-center">Connect your Algorand wallet on Testnet and place your vote below!</p>
+      </div>
+
       <div className="grid grid-cols-1 place-items-center pt-10 space-y-3">
         {!currentAccount && (
-          <button onClick={connectWallet} className="p-4 shadow-lg border-solid bg-slate-800 text-white rounded-md">Connect Wallet</button>
+          <button onClick={connectWallet} className="p-4 uppercase font-semibold shadow-xl bg-gradient-to-r from-zinc-400 to-zinc-500 text-black rounded-lg">Connect Wallet</button>
         )}
 
         {currentAccount && (
         <>
-          <button onClick={disconnectWallet} className="p-4 shadow-lg border-solid bg-slate-800 text-white rounded-md">Disconnect</button>
+          <button onClick={disconnectWallet} className="p-4 uppercase font-semibold shadow-xl bg-gradient-to-r from-zinc-400 to-zinc-500 text-black rounded-lg">Disconnect</button>
         </>
         )}
       </div>
 
-      <div className="grid grid-cols-1 place-items-center pt-10">
-          <div className="flex space-x-3">
-            <button onClick={addC1} className="p-4 shadow-lg border-solid bg-slate-800 text-white rounded-md">Add C1</button>
-            <button onClick={addC2} className="p-4 shadow-lg border-solid bg-slate-800 text-white rounded-md">Add C2</button>
+      <div className="pt-10 border-b-2 border-zinc-500 b-color w-fit px-10 mx-auto"></div>
+
+      <div className="grid grid-cols-2 place-items-center p-10">
+          <div className="flex flex-col space-y-3">
+            <button onClick={addC1} className="p-4 uppercase font-semibold shadow-xl bg-gradient-to-r from-emerald-400 to-emerald-500 text-black rounded-lg">WAGMI</button>
+            <p className="font-semibold">WAGMI vote is: {Count1}</p>
           </div>
 
-          <div className="pt-5">
-            <p>Count 1 is: {Count1}</p>
+          <div className="flex flex-col space-y-3">
+            <button onClick={addC2} className="p-4 uppercase font-semibold shadow-xl bg-gradient-to-r from-red-400 to-red-500 text-black rounded-lg">NGMI</button>
+            <p className="font-semibold">NGMI vote is: {Count2}</p>
           </div>
-
-          <div className="pt-5">
-            <p>Count 2 is: {Count2}</p>
-          </div>
-
-          
       </div>
     </div>
   )
