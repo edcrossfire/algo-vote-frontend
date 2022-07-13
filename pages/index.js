@@ -3,7 +3,7 @@ import App from "../components/App";
 
 export default function Home() {
   return (
-    <div>
+    <div className=" bg-slate-700 pt-3">
       <Head>
         <title>Algo Vote</title>
       </Head>

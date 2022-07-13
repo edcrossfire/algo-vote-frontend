@@ -192,37 +192,37 @@ const checkIfWalletIsConnected = async () => {
   }, [currentAccount])
 
   return (
-    <div className="bg-zinc-200 h-screen">
-      <div className="flex flex-col items-center pt-10">
-        <h1 className="uppercase font-bold text-2xl">Are we GMI?</h1>
-        <p className="px-10 pt-2 text-center">Connect your Algorand wallet on Testnet and place your vote below!</p>
-      </div>
+    <div className="h-screen max-w-screen-lg mx-auto">
+      <div className="flex flex-col items-center p-10 shadow-xl rounded-xl bg-slate-800">
+        <h1 className="uppercase text-slate-100 font-bold font-mono text-2xl">Are we GMI?</h1>
+        <p className="px-10 pt-2 pb-6 text-slate-100 text-center font-mono max-w-prose">This is a simple voting app demonstration built on the Algorand blockchain. The smart contracts were written and deployed using PyTeal and keep track of the user vote counts for each option. Try it out by connecting your Algorand wallet on Testnet to display the voting options and placing your vote. You will see the vote count increase each time you vote!</p>
 
-      <div className="grid grid-cols-1 place-items-center pt-10 space-y-3">
         {!currentAccount && (
-          <button onClick={connectWallet} className="p-4 uppercase font-semibold shadow-xl bg-gradient-to-r from-zinc-400 to-zinc-500 text-black rounded-lg">Connect Wallet</button>
+          <button onClick={connectWallet} className="p-4 uppercase font-semibold shadow-xl rounded-xl bg-emerald-500 text-slate-900 font-mono">Connect Wallet</button>
         )}
 
         {currentAccount && (
         <>
-          <button onClick={disconnectWallet} className="p-4 uppercase font-semibold shadow-xl bg-gradient-to-r from-zinc-400 to-zinc-500 text-black rounded-lg">Disconnect</button>
+          <button onClick={disconnectWallet} className="p-4 uppercase font-semibold shadow-xl rounded-xl bg-emerald-800 text-slate-100 font-mono">Disconnect</button>
         </>
         )}
       </div>
 
-      <div className="pt-10 border-b-2 border-zinc-500 b-color w-fit px-10 mx-auto"></div>
+      <div className="pt-10 border-b-2 border-slate-500 b-color w-fit px-10 mx-auto"></div>
 
-      <div className="grid grid-cols-2 place-items-center p-10">
+      {currentAccount && (
+          <div className="grid grid-cols-2 place-items-center p-10">
           <div className="flex flex-col space-y-3">
-            <button onClick={addC1} className="p-4 uppercase font-semibold shadow-xl bg-gradient-to-r from-emerald-400 to-emerald-500 text-black rounded-lg">WAGMI</button>
-            <p className="font-semibold">WAGMI vote is: {Count1}</p>
+            <button onClick={addC1} className="p-4 uppercase font-semibold shadow-xl rounded-xl bg-emerald-500 text-slate-900 font-mono hover:shadow-sm hover:bg-emerald-600">WAGMI</button>
+            <p className="font-semibold text-slate-100 font-mono">WAGMI vote is: {Count1}</p>
           </div>
 
           <div className="flex flex-col space-y-3">
-            <button onClick={addC2} className="p-4 uppercase font-semibold shadow-xl bg-gradient-to-r from-red-400 to-red-500 text-black rounded-lg">NGMI</button>
-            <p className="font-semibold">NGMI vote is: {Count2}</p>
+            <button onClick={addC2} className="p-4 uppercase font-semibold shadow-xl rounded-xl bg-emerald-500 text-slate-900 font-mono hover:shadow-sm hover:bg-emerald-600">NGMI</button>
+            <p className="font-semibold text-slate-100 font-mono">NGMI vote is: {Count2}</p>
           </div>
-      </div>
+          </div>
+      )}
     </div>
   )
 }
